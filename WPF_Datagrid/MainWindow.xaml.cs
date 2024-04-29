@@ -23,6 +23,23 @@ namespace WPF_Datagrid
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void SetData()
+        {
+            List<UserControlListView> userControls = new List<UserControlListView>();
+            userControls.Add(new UserControlListView()
+            {
+                Header = "样式1",
+                Control = new View.UC_Datagrid_Format_1()
+            }) ;
+            lv_title.ItemsSource = userControls;
+            lv_title.DisplayMemberPath = "Header";
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetData();
         }
     }
 }
